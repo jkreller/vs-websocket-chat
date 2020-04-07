@@ -17,7 +17,7 @@ class Chat extends Component {
     static getWebSocketHost() {
         // replace http with ws to handle http/ws and https/wss
         let host = window.location.origin.replace(/^http/, 'ws');
-        console.log(NODE_ENV);
+
         if (NODE_ENV !== 'production') {
             // for development purpose the WebSocket server uses port 3001
             host = `ws://${window.location.hostname}:3001`;
