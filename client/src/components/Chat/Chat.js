@@ -4,6 +4,7 @@ import ChatInput from './ChatInput'
 import ChatMessage from './ChatMessage'
 import Logout from "../Authentication/Logout";
 
+// Replace http with ws to handle http/ws and https/wss
 const HOST = window.location.origin.replace(/^http/, 'ws');
 
 class Chat extends Component {
@@ -19,9 +20,8 @@ class Chat extends Component {
     }
 
     componentDidMount() {
-        console.log("WS-Host: " + HOST);
         this.ws.onopen = () => {
-            console.log('Websocket server connected');
+            console.log(`Websocket server connected: ${HOST}`);
 
             // on connecting try to authenticate
             this.ws.send(JSON.stringify({
