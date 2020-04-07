@@ -4,8 +4,7 @@ import ChatInput from './ChatInput'
 import ChatMessage from './ChatMessage'
 import Logout from "../Authentication/Logout";
 
-// Replace http with ws to handle http/ws and https/wss
-const HOST = window.location.origin.replace(/^http/, 'ws');
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 class Chat extends Component {
     state = {
@@ -15,13 +14,26 @@ class Chat extends Component {
 
     ws = Chat.createWebsocket();
 
+    static getWebSocketHost() {
+        // replace http with ws to handle http/ws and https/wss
+        let host = window.location.origin.replace(/^http/, 'ws');
+        console.log(NODE_ENV);
+        if (NODE_ENV !== 'production') {
+            // for development purpose the WebSocket server uses port 3001
+            host = `ws://${window.location.hostname}:3001`;
+        }
+
+        return host;
+    }
+
     static createWebsocket() {
-        return new WebSocket(HOST);
+
+        return new WebSocket(Chat.getWebSocketHost());
     }
 
     componentDidMount() {
         this.ws.onopen = () => {
-            console.log(`Websocket server connected: ${HOST}`);
+            console.log(`Websocket server connected`);
 
             // on connecting try to authenticate
             this.ws.send(JSON.stringify({
