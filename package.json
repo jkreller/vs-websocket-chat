@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "cd client && yarn install client",
+    "build": "cd client && yarn install",
     "server": "node ./bin/www",
     "client": "npm start --prefix client",
-    "start": "concurrently 'npm run server' 'npm run client'"
+    "start": "concurrently 'npm run client' 'npm run server'"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
