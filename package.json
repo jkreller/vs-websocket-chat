@@ -3,10 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "cd client && yarn install",
-    "server": "node ./bin/www",
-    "client": "npm start --prefix client",
-    "start": "concurrently 'npm run client' 'npm run server'"
+    "start": "node ./bin/www",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

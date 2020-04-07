@@ -5,11 +5,10 @@ const webpack = require('webpack'); // remember to require this, because we Defi
 // it will contain all the environment variables (that we set in package.json) as key/value pairs
 module.exports = (env) => {
     // this object is our actual webpack config
-    var port = env.PORT || 3001;
     return {
         plugins: [
             // add the plugin to your plugins array
-            new webpack.DefinePlugin({'process.env.PORT': JSON.stringify(port)})
+            new webpack.DefinePlugin({'process.env.PORT': JSON.stringify('port')})
         ]
     };
 };
