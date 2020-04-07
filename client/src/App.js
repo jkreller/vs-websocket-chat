@@ -6,6 +6,10 @@ import Authenticator from './components/Authentication/Authenticator'
 import { Helmet } from "react-helmet";
 
 class App extends Component {
+    componentDidMount() {
+        console.log(process.env);
+    }
+
     render() {
         return (
             <div className="App full-height">

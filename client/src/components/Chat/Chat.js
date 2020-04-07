@@ -4,7 +4,7 @@ import ChatInput from './ChatInput'
 import ChatMessage from './ChatMessage'
 import Logout from "../Authentication/Logout";
 
-const URL = `ws://${window.location.hostname}:3030`;
+const URL = `ws://${window.location.hostname}:3001`;
 
 class Chat extends Component {
     state = {

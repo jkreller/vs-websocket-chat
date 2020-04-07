@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "npm install client",
+    "build": "yarn install client",
     "server": "node ./bin/www",
     "client": "npm start --prefix client",
     "start": "concurrently 'npm run server' 'npm run client'"

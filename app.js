@@ -11,9 +11,6 @@ var userRouter = require('./routes/user');
 
 var app = express();
 
-// start websocket server
-require('./websocket-server');
-
 // set environment variables
 env(__dirname + '/.env');
 
