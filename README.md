@@ -33,4 +33,4 @@ Now you can access the app here: http://localhost:3001
 It is not necessary to start a React.js development server because in production the Express.js server serves React
 .js' static build files.
 
-in production it is recommended to set the environment variable NODE_ENV to 'production'.
+In production it is recommended to set the environment variable NODE_ENV to "production".

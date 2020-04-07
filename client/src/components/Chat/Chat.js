@@ -27,13 +27,12 @@ class Chat extends Component {
     }
 
     static createWebsocket() {
-
         return new WebSocket(Chat.getWebSocketHost());
     }
 
     componentDidMount() {
         this.ws.onopen = () => {
-            console.log(`Websocket server connected`);
+            console.log('Websocket server connected');
 
             // on connecting try to authenticate
             this.ws.send(JSON.stringify({
@@ -53,9 +52,7 @@ class Chat extends Component {
         this.ws.onclose = () => {
             console.log('Websocket server disconnected');
             // automatically try to reconnect on connection loss
-            this.setState({
-                ws: Chat.createWebsocket(),
-            });
+            this.ws = Chat.createWebsocket();
         }
     }
 
@@ -95,10 +92,7 @@ class Chat extends Component {
                     )}
                 </div>
                 <div className={'chat-input'}>
-                    <ChatInput
-                      ws={this.ws}
-                      onSubmitMessage={(messageString, date) => this.submitMessage(messageString, date)}
-                    />
+                    <ChatInput onSubmitMessage={(messageString, date) => this.submitMessage(messageString, date)}/>
                 </div>
             </div>
         )
