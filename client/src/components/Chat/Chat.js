@@ -4,7 +4,7 @@ import ChatInput from './ChatInput'
 import ChatMessage from './ChatMessage'
 import Logout from "../Authentication/Logout";
 
-const URL = `ws://${window.location.hostname}:3001`;
+const HOST = window.location.origin.replace(/^http/, 'ws');
 
 class Chat extends Component {
     state = {
@@ -15,10 +15,11 @@ class Chat extends Component {
     ws = Chat.createWebsocket();
 
     static createWebsocket() {
-        return new WebSocket(URL);
+        return new WebSocket(HOST);
     }
 
     componentDidMount() {
+        console.log("WS-Host: " + HOST);
         this.ws.onopen = () => {
             console.log('Websocket server connected');
 

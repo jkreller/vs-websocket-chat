@@ -14,9 +14,8 @@ var app = express();
 // set environment variables
 env(__dirname + '/.env');
 
-const mongoDbDatabase = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@${process.env.MONGODB_HOST}/${process.env.MONGODB_DB}?retryWrites=true&w=majority`;
-
 // connect to database
+const mongoDbDatabase = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@${process.env.MONGODB_HOST}/${process.env.MONGODB_DB}?retryWrites=true&w=majority`;
 mongoose.connect(mongoDbDatabase, {
   useNewUrlParser: true,
   useUnifiedTopology: true
