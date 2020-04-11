@@ -21,7 +21,7 @@ exports.createServer = (httpServer) => {
     wss.on('connection', function connection(ws) {
         ws
             .on('message', (data) => toEvent(ws, data))
-            .on('authenticate', (data) => {
+            .on('authorization', (data) => {
                 jwtAuthenticator.verify(data.token, (err, decoded) => {
                     if (err) {
                         ws.send(JSON.stringify({error: err.message}));
@@ -32,6 +32,7 @@ exports.createServer = (httpServer) => {
                 });
             })
             .on('chat', (data) => {
+                console.log(data);
                 // Check if sender is authenticated
                 if (ws.username) {
                     wss.clients.forEach((client) => {
@@ -39,7 +40,8 @@ exports.createServer = (httpServer) => {
                         if (client !== ws && client.username && client.readyState === WebSocket.OPEN) {
                             client.send(JSON.stringify({
                                 username: ws.username,
-                                message: data.message
+                                message: data.message,
+                                date: data.date
                             }));
                         }
                     });

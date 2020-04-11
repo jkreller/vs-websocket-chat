@@ -36,7 +36,7 @@ class Chat extends Component {
 
             // on connecting try to authenticate
             this.ws.send(JSON.stringify({
-                type: 'authenticate',
+                type: 'authorization',
                 payload: {token: Cookies.get('token')}
             }));
         };
