@@ -37,8 +37,8 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/user', userRouter);
 
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
+// the "catchall" handler: for any request that doesn't match one of the defined routes, send back React's
+// index.html file.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
