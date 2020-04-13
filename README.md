@@ -34,3 +34,12 @@ It is not necessary to start a React.js development server because in production
 .js' static build files.
 
 In production it is recommended to set the environment variable NODE_ENV to "production".
+
+## Sources
+Main sources used for this project:
+
+https://blog.bitlabstudio.com/a-simple-chat-app-with-react-node-and-websocket-35d3c9835807
+
+https://daveceddia.com/create-react-app-express-backend/
+
+https://gist.github.com/jfromaniello/8418116
