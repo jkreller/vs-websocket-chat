@@ -1,14 +1,31 @@
 # vs-websocket-chat
 
+A WebSocket chat made with websockets/ws, React.js, Express.js and MongoDB.
+
 All of the following commands should be executed in the app root directory.
 
-##Installation
+Note: This project uses yarn instead of npm.
+
+## Preparation
+
+Fill in the .env-Variables by adding a file named ".env" to the root of the project. Inside of it specify the MongoDB
+database parameters like the following:
+
+```
+MONGODB_USER=<USER>
+MONGODB_PASS=<PASS>
+MONGODB_HOST=<HOST>
+MONGODB_DB=<DB>
+```
+
+## Installation
+
 Install npm server and client packages:
 
 `yarn install && cd client && yarn install`
 
-##Start
-###Development
+## Start
+### Development
 Start Express.js server and WebSocket server (both on port 3001):
 
 `yarn start`
@@ -19,7 +36,7 @@ Start React.js client development server (on port 3000):
 
 Now you can access the app here: http://localhost:3000
 
-###Production
+### Production
 Build static React.js files for Express.js server:
 
 `cd client && yarn run build`
