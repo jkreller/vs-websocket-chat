@@ -1,5 +1,7 @@
 # vs-websocket-chat
 
+This project is part of a studies project for the subject of "Distributed systems".
+
 A WebSocket chat made with websockets/ws, React.js, Express.js and MongoDB.
 You can found a deployed version of it here: https://vs-websocket-chat.herokuapp.com/
 
